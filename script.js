@@ -142,50 +142,6 @@ $("#form").on('submit', function(e) {
         };
     })
 });
-//end of event handler... finally!
-//add effect
-var weatherBackground = "";
-// Dynamic background
-if (response.weather[0].icon === "01d") {
-    weatherBackground = "url('https://i.gifer.com/3Xj6.gif')";
-}
-if (response.weather[0].icon === "01n") {
-    weatherBackground = "url('https://i.gifer.com/SvCy.gif')";
-}
-if (response.weather[0].icon === "02d") {
-    weatherBackground = "url('https://i.gifer.com/XFbw.gif')"
-}
-if (response.weather[0].icon === "02n") {
-    weatherBackground = "url('https://i.gifer.com/Pjeh.gif')"
-}
-if (response.weather[0].icon === "03d") {
-    weatherBackground = "url('https://i.gifer.com/1F1I.gif')"
-}
-if (response.weather[0].icon === "03n") {
-    weatherBackground = "url('https://i.gifer.com/1ZvY.gif')"
-}
-if (response.weather[0].icon === "04d" || response.weather[0].icon === "04n") {
-    weatherBackground = "url('https://i.gifer.com/1ezL.gif')"
-}
-if (response.weather[0].icon === "09d" || response.weather[0].icon === "09n") {
-    weatherBackground = "url('https://i.gifer.com/Rtul.gif')"
-}
-if (response.weather[0].icon === "10d" || response.weather[0].icon === "10n") {
-    weatherBackground = "url('https://i.gifer.com/7x5I.gif')"
-}
-if (response.weather[0].icon === "11d" || response.weather[0].icon === "11n") {
-    weatherBackground = "url('https://i.gifer.com/E1vA.gif')"
-}
-if (response.weather[0].icon === "13d" || response.weather[0].icon === "13n") {
-    weatherBackground = "url('https://i.gifer.com/2ZOX.gif')"
-}
-if (response.weather[0].icon === "50d" || response.weather[0].icon === "50n") {
-    weatherBackground = "url('https://i.gifer.com/b1Z.gif')"
-}
-
-// contain.css("background-image", weatherBackground)
-
-//end of add effect
 
 function loadData() {
     var loadData = localStorage.getItem("cityStorage")
@@ -259,7 +215,7 @@ $(".btn").on('click', function() {
 
                 $("#date1").append(response.list[7].dt_txt.slice(5, 10))
                 $('#date1').append("<br>")
-                var icon = `http://openweathermap.org/img/wn/${response.list[7].weather[0].icon}@2x.png`
+                var icon = 'http://openweathermap.org/img/wn/${response.list[7].weather[0].icon}@2x.png'
                 $('#date1').append(`<img src="${icon}">`);
                 $('#date1').attr("style", "font-size: 10px; text-align: center;")
                 $('#date1').append("Temperature: " + response.list[7].main.temp.toFixed(0) + "°")
@@ -268,16 +224,15 @@ $(".btn").on('click', function() {
 
                 $("#date2").append(response.list[15].dt_txt.slice(5, 10))
                 $('#date2').append("<br>")
-                var icon = `http://openweathermap.org/img/wn/${response.list[15].weather[0].icon}@2x.png`
+                var icon = 'http://openweathermap.org/img/wn/${response.list[15].weather[0].icon}@2x.png'
                 $('#date2').append(`<img src="${icon}">`);
                 $('#date2').attr("style", "font-size: 10px; text-align: center;")
                 $('#date2').append("Temperature: " + response.list[15].main.temp.toFixed(0) + "°")
                 $('#date2').append("<br>")
                 $('#date2').append("Humidity: " + response.list[15].main.humidity + "%")
-
                 $("#date3").append(response.list[23].dt_txt.slice(5, 10))
                 $('#date3').append("<br>")
-                var icon = `http://openweathermap.org/img/wn/${response.list[23].weather[0].icon}@2x.png`
+                var icon = 'http://openweathermap.org/img/wn/${response.list[23].weather[0].icon}@2x.png'
                 $('#date3').append(`<img src="${icon}">`);
                 $('#date3').attr("style", "font-size: 10px; text-align: center;")
                 $('#date3').append("Temperature: " + response.list[23].main.temp.toFixed(0) + "°")
@@ -286,7 +241,7 @@ $(".btn").on('click', function() {
 
                 $("#date4").append(response.list[31].dt_txt.slice(5, 10))
                 $('#date4').append("<br>")
-                var icon = `http://openweathermap.org/img/wn/${response.list[31].weather[0].icon}@2x.png`
+                var icon = 'http://openweathermap.org/img/wn/${response.list[31].weather[0].icon}@2x.png'
                 $('#date4').append(`<img src="${icon}">`);
                 $('#date4').attr("style", "font-size: 10px; text-align: center;")
                 $('#date4').append("Temperature: " + response.list[31].main.temp.toFixed(0) + "°")
@@ -295,10 +250,10 @@ $(".btn").on('click', function() {
 
                 $("#date5").append(response.list[39].dt_txt.slice(5, 10))
                 $('#date5').append("<br>")
-                var icon = `http://openweathermap.org/img/wn/${response.list[39].weather[0].icon}@2x.png`
+                var icon = 'http://openweathermap.org/img/wn/${response.list[39].weather[0].icon}@2x.png'
                 $('#date5').append(`<img src="${icon}">`);
                 $('#date5').attr("style", "font-size: 10px; text-align: center;")
-                $('#date5').append("Temperature: " + response.list[39].main.temp.toFixed(0) + "°")
+                $('#date5').append("Temperature: " + response.list[39].main.temp.toFixed(0) + C + "°")
                 $('#date5').append("<br>")
                 $('#date5').append("Humidity: " + response.list[39].main.humidity + "%")
             })
@@ -384,7 +339,7 @@ function initialize() {
                 var icon = `http://openweathermap.org/img/wn/${response.list[7].weather[0].icon}@2x.png`
                 $('#date1').append(`<img src="${icon}">`);
                 $('#date1').attr("style", "font-size: 10px; text-align: center;")
-                $('#date1').append("Temperature: " + Math.round(response.list[7].main.temp.toFixed(0)) + "°")
+                $('#date1').append("Temperature: " + response.list[7].main.temp.toFixed(0) + "°")
                 $('#date1').append("<br>")
                 $('#date1').append("Humidity: " + response.list[7].main.humidity + "%")
 
@@ -393,7 +348,7 @@ function initialize() {
                 var icon = `http://openweathermap.org/img/wn/${response.list[15].weather[0].icon}@2x.png`
                 $('#date2').append(`<img src="${icon}">`);
                 $('#date2').attr("style", "font-size: 10px; text-align: center;")
-                $('#date2').append("Temperature: " + Math.round(response.list[15].main.temp.toFixed(0)) + "°")
+                $('#date2').append("Temperature: " + response.list[15].main.temp.toFixed(0) + "°")
                 $('#date2').append("<br>")
                 $('#date2').append("Humidity: " + response.list[15].main.humidity + "%")
 
@@ -402,7 +357,7 @@ function initialize() {
                 var icon = `http://openweathermap.org/img/wn/${response.list[23].weather[0].icon}@2x.png`
                 $('#date3').append(`<img src="${icon}">`);
                 $('#date3').attr("style", "font-size: 10px; text-align: center;")
-                $('#date3').append("Temperature: " + Math.round(response.list[23].main.temp.toFixed(0)) + "°")
+                $('#date3').append("Temperature: " + response.list[23].main.temp.toFixed(0) + "°")
                 $('#date3').append("<br>")
                 $('#date3').append("Humidity: " + response.list[23].main.humidity + "%")
 
@@ -411,7 +366,7 @@ function initialize() {
                 var icon = `http://openweathermap.org/img/wn/${response.list[31].weather[0].icon}@2x.png`
                 $('#date4').append(`<img src="${icon}">`);
                 $('#date4').attr("style", "font-size: 10px; text-align: center;")
-                $('#date4').append("Temperature: " + Math.round(response.list[31].main.temp.toFixed(0)) + "°")
+                $('#date4').append("Temperature: " + response.list[31].main.temp.toFixed(0) + "°")
                 $('#date4').append("<br>")
                 $('#date4').append("Humidity: " + response.list[31].main.humidity + "%")
 
@@ -420,7 +375,7 @@ function initialize() {
                 var icon = `http://openweathermap.org/img/wn/${response.list[39].weather[0].icon}@2x.png`
                 $('#date5').append(`<img src="${icon}">`);
                 $('#date5').attr("style", "font-size: 10px; text-align: center;")
-                $('#date5').append("Temperature: " + Math.round(response.list[39].main.temp.toFixed(0)) + "°")
+                $('#date5').append("Temperature: " + response.list[39].main.temp.toFixed(0) + "°")
                 $('#date5').append("<br>")
                 $('#date5').append("Humidity: " + response.list[39].main.humidity + "%")
             });
